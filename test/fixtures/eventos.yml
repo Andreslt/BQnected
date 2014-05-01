@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nombre: MyString
+  tipo: MyString
+  fecha: 2014-05-01
+  barrio: MyString
+  ubicacion: MyString
+  asistentes: 1
+
+two:
+  nombre: MyString
+  tipo: MyString
+  fecha: 2014-05-01
+  barrio: MyString
+  ubicacion: MyString
+  asistentes: 1
