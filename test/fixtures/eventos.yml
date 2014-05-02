@@ -3,15 +3,23 @@
 one:
   nombre: MyString
   tipo: MyString
-  fecha: 2014-05-01
+  descripcion: MyText
+  fecha: 2014-05-02
+  locacion: MyString
   barrio: MyString
   ubicacion: MyString
+  hora: 2014-05-02 03:39:49
   asistentes: 1
+  id: 1
 
 two:
   nombre: MyString
   tipo: MyString
-  fecha: 2014-05-01
+  descripcion: MyText
+  fecha: 2014-05-02
+  locacion: MyString
   barrio: MyString
   ubicacion: MyString
+  hora: 2014-05-02 03:39:49
   asistentes: 1
+  id: 1

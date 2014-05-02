@@ -1,0 +1,33 @@
+<%= form_for(@alertum) do |f| %>
+  <% if @alertum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@alertum.errors.count, "error") %> prohibited this alertum from being saved:</h2>
+
+      <ul>
+      <% @alertum.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :contenido %><br />
+    <%= f.text_area :contenido %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo %><br />
+    <%= f.text_field :tipo %>
+  </div>
+  <div class="field">
+    <%= f.label :id %><br />
+    <%= f.number_field :id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

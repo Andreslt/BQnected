@@ -5,11 +5,13 @@ one:
   email: MyString
   barrio: MyString
   descripcion: MyText
-  id: MyString
+  username: MyString
+  id: 1
 
 two:
   nombre: MyString
   email: MyString
   barrio: MyString
   descripcion: MyText
-  id: MyString
+  username: MyString
+  id: 1

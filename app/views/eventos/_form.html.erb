@@ -20,8 +20,16 @@
     <%= f.text_field :tipo %>
   </div>
   <div class="field">
+    <%= f.label :descripcion %><br />
+    <%= f.text_area :descripcion %>
+  </div>
+  <div class="field">
     <%= f.label :fecha %><br />
     <%= f.date_select :fecha %>
+  </div>
+  <div class="field">
+    <%= f.label :locacion %><br />
+    <%= f.text_field :locacion %>
   </div>
   <div class="field">
     <%= f.label :barrio %><br />
@@ -30,6 +38,18 @@
   <div class="field">
     <%= f.label :ubicacion %><br />
     <%= f.text_field :ubicacion %>
+  </div>
+  <div class="field">
+    <%= f.label :hora %><br />
+    <%= f.time_select :hora %>
+  </div>
+  <div class="field">
+    <%= f.label :asistentes %><br />
+    <%= f.number_field :asistentes %>
+  </div>
+  <div class="field">
+    <%= f.label :id %><br />
+    <%= f.number_field :id %>
   </div>
   <div class="actions">
     <%= f.submit %>

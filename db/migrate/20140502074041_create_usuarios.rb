@@ -5,6 +5,8 @@ class CreateUsuarios < ActiveRecord::Migration
       t.string :email
       t.string :barrio
       t.text :descripcion
+      t.string :username
+      t.integer :id
 
       t.timestamps
     end

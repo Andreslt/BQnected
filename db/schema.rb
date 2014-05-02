@@ -11,17 +11,44 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140501212754) do
+ActiveRecord::Schema.define(:version => 20140502074425) do
+
+  create_table "alerta", :force => true do |t|
+    t.string   "nombre"
+    t.text     "contenido"
+    t.string   "tipo"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "barrios", :force => true do |t|
+    t.string   "nombre"
+    t.string   "locacion"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "comentarios", :force => true do |t|
+    t.string   "nombre"
+    t.text     "comentario"
+    t.string   "evento"
+    t.boolean  "asistencia"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "eventos", :force => true do |t|
     t.string   "nombre"
     t.string   "tipo"
+    t.text     "descripcion"
     t.date     "fecha"
+    t.string   "locacion"
     t.string   "barrio"
     t.string   "ubicacion"
+    t.time     "hora"
     t.integer  "asistentes"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "usuarios", :force => true do |t|
@@ -29,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20140501212754) do
     t.string   "email"
     t.string   "barrio"
     t.text     "descripcion"
+    t.string   "username"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

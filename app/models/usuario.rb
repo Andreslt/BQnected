@@ -1,3 +1,3 @@
 class Usuario < ActiveRecord::Base
-  attr_accessible :barrio, :descripcion, :email, :id, :nombre
+  attr_accessible :barrio, :descripcion, :email, :id, :nombre, :username
 end

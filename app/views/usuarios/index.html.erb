@@ -6,6 +6,8 @@
     <th>Email</th>
     <th>Barrio</th>
     <th>Descripcion</th>
+    <th>Username</th>
+    <th>Id</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,6 +19,8 @@
     <td><%= usuario.email %></td>
     <td><%= usuario.barrio %></td>
     <td><%= usuario.descripcion %></td>
+    <td><%= usuario.username %></td>
+    <td><%= usuario.id %></td>
     <td><%= link_to 'Show', usuario %></td>
     <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
     <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
