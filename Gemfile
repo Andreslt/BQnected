@@ -8,6 +8,7 @@ gem 'rails', '3.2.17'
 group :development do
 	gem 'sqlite3'
 	gem 'better_errors'
+	gem 'quiet_assets'
 end
 gem 'devise'
 gem 'foundation-rails'

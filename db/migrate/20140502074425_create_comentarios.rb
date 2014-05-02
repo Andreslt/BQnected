@@ -1,11 +1,10 @@
 class CreateComentarios < ActiveRecord::Migration
   def change
     create_table :comentarios do |t|
-      t.string :nombre
+      t.references :usuario
       t.text :comentario
-      t.string :evento
+      t.references :evento
       t.boolean :asistencia
-      t.integer :id
 
       t.timestamps
     end

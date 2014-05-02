@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Nombre:</b>
-  <%= @comentario.nombre %>
-</p>
-
-<p>
   <b>Comentario:</b>
   <%= @comentario.comentario %>
 </p>
@@ -19,12 +14,6 @@
   <b>Asistencia:</b>
   <%= @comentario.asistencia %>
 </p>
-
-<p>
-  <b>Id:</b>
-  <%= @comentario.id %>
-</p>
-
 
 <%= link_to 'Edit', edit_comentario_path(@comentario) %> |
 <%= link_to 'Back', comentarios_path %>

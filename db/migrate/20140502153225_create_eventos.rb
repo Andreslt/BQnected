@@ -3,16 +3,15 @@ class CreateEventos < ActiveRecord::Migration
     create_table :eventos do |t|
       t.string :nombre
       t.string :tipo
-      t.text :descripcion
       t.date :fecha
-      t.string :locacion
-      t.string :barrio
+      t.references :barrio
       t.string :ubicacion
-      t.time :hora
       t.integer :asistentes
-      t.integer :id
+      t.time :hora
+      t.text :descripcion
 
       t.timestamps
     end
+    add_index :eventos, :barrio_id
   end
 end

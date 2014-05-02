@@ -4,7 +4,6 @@ class CreateAlerta < ActiveRecord::Migration
       t.string :nombre
       t.text :contenido
       t.string :tipo
-      t.integer :id
 
       t.timestamps
     end

@@ -25,15 +25,11 @@
   </div>
   <div class="field">
     <%= f.label :fecha %><br />
-    <%= f.date_select :fecha %>
+    <%= f.text_field :fecha %>
   </div>
   <div class="field">
-    <%= f.label :locacion %><br />
-    <%= f.text_field :locacion %>
-  </div>
-  <div class="field">
-    <%= f.label :barrio %><br />
-    <%= f.text_field :barrio %>
+    <%= f.label :barrio_id %><br />
+    <%= f.select :barrio_id, options_for_select(@barrios), include_blank: true %>
   </div>
   <div class="field">
     <%= f.label :ubicacion %><br />
@@ -42,14 +38,6 @@
   <div class="field">
     <%= f.label :hora %><br />
     <%= f.time_select :hora %>
-  </div>
-  <div class="field">
-    <%= f.label :asistentes %><br />
-    <%= f.number_field :asistentes %>
-  </div>
-  <div class="field">
-    <%= f.label :id %><br />
-    <%= f.number_field :id %>
   </div>
   <div class="actions">
     <%= f.submit %>

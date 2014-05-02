@@ -34,14 +34,16 @@ class ComentariosController < ApplicationController
 
   # GET /comentarios/1/edit
   def edit
+    @eventos = Evento.all.map { |eve| [eve.nombre, eve.id]  }
     @comentario = Comentario.find(params[:id])
   end
 
   # POST /comentarios
   # POST /comentarios.json
   def create
+    # @comentario = current_user.comentarios.new(params[:comentario])
     @comentario = Comentario.new(params[:comentario])
-
+    @eventos = Evento.all.map { |eve| [eve.nombre, eve.id]  }
     respond_to do |format|
       if @comentario.save
         format.html { redirect_to @comentario, notice: 'Comentario was successfully created.' }
