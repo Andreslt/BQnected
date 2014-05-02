@@ -12,7 +12,7 @@
 
 <p>
   <b>Barrio:</b>
-  <%= @usuario.barrio %>
+  <%= @usuario.barrio.nombre %>
 </p>
 
 <p>
@@ -24,12 +24,6 @@
   <b>Username:</b>
   <%= @usuario.username %>
 </p>
-
-<p>
-  <b>Id:</b>
-  <%= @usuario.id %>
-</p>
-
 
 <%= link_to 'Edit', edit_usuario_path(@usuario) %> |
 <%= link_to 'Back', usuarios_path %>

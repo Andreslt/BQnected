@@ -25,7 +25,7 @@ class EventosController < ApplicationController
   # GET /eventos/new.json
   def new
     @evento = Evento.new
-
+    @barrios = Barrio.all.map { |bar| [bar.nombre, bar.id]  }
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @evento }
@@ -34,6 +34,7 @@ class EventosController < ApplicationController
 
   # GET /eventos/1/edit
   def edit
+    @barrios = Barrio.all.map { |bar| [bar.nombre, bar.id]  }
     @evento = Evento.find(params[:id])
   end
 

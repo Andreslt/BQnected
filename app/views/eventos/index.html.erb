@@ -4,14 +4,12 @@
   <tr>
     <th>Nombre</th>
     <th>Tipo</th>
-    <th>Descripcion</th>
     <th>Fecha</th>
-    <th>Locacion</th>
-    <th>Barrio</th>
     <th>Ubicacion</th>
+    <th>Barrio</th>
+    <th>Locación</th>
     <th>Hora</th>
     <th>Asistentes</th>
-    <th>Id</th>
     <th></th>
     <th></th>
     <th></th>
@@ -21,14 +19,12 @@
   <tr>
     <td><%= evento.nombre %></td>
     <td><%= evento.tipo %></td>
-    <td><%= evento.descripcion %></td>
     <td><%= evento.fecha %></td>
-    <td><%= evento.locacion %></td>
-    <td><%= evento.barrio %></td>
     <td><%= evento.ubicacion %></td>
+    <td><%= evento.barrio.nombre %></td>
+    <td><%= evento.barrio.locacion %></td>
     <td><%= evento.hora %></td>
     <td><%= evento.asistentes %></td>
-    <td><%= evento.id %></td>
     <td><%= link_to 'Show', evento %></td>
     <td><%= link_to 'Edit', edit_evento_path(evento) %></td>
     <td><%= link_to 'Destroy', evento, method: :delete, data: { confirm: 'Are you sure?' } %></td>

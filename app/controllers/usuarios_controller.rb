@@ -25,7 +25,7 @@ class UsuariosController < ApplicationController
   # GET /usuarios/new.json
   def new
     @usuario = Usuario.new
-
+    @barrios = Barrio.all.map { |bar| [bar.nombre, bar.id]  }
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @usuario }
@@ -34,6 +34,7 @@ class UsuariosController < ApplicationController
 
   # GET /usuarios/1/edit
   def edit
+    @barrios = Barrio.all.map { |bar| [bar.nombre, bar.id]  }
     @usuario = Usuario.find(params[:id])
   end
 

@@ -2,11 +2,9 @@
 
 <table>
   <tr>
-    <th>Nombre</th>
     <th>Comentario</th>
     <th>Evento</th>
     <th>Asistencia</th>
-    <th>Id</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,11 +12,9 @@
 
 <% @comentarios.each do |comentario| %>
   <tr>
-    <td><%= comentario.nombre %></td>
     <td><%= comentario.comentario %></td>
-    <td><%= comentario.evento %></td>
+    <td><%= comentario.evento.try(:nombre) %></td>
     <td><%= comentario.asistencia %></td>
-    <td><%= comentario.id %></td>
     <td><%= link_to 'Show', comentario %></td>
     <td><%= link_to 'Edit', edit_comentario_path(comentario) %></td>
     <td><%= link_to 'Destroy', comentario, method: :delete, data: { confirm: 'Are you sure?' } %></td>

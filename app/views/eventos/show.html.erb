@@ -21,13 +21,8 @@
 </p>
 
 <p>
-  <b>Locacion:</b>
-  <%= @evento.locacion %>
-</p>
-
-<p>
   <b>Barrio:</b>
-  <%= @evento.barrio %>
+  <%= @evento.barrio.try(:nombre) %>
 </p>
 
 <p>
@@ -43,11 +38,6 @@
 <p>
   <b>Asistentes:</b>
   <%= @evento.asistentes %>
-</p>
-
-<p>
-  <b>Id:</b>
-  <%= @evento.id %>
 </p>
 
 

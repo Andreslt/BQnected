@@ -1,3 +1,5 @@
 class Barrio < ActiveRecord::Base
-  attr_accessible :id, :locacion, :nombre
+  attr_accessible :locacion, :nombre
+
+  has_many :eventos
 end
