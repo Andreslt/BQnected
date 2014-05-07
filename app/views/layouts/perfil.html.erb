@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "BQnected" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1>      
+        <%= link_to 'BQnected', eventos_path %>
+        </h1>
+      </li>
+       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">      
+      <li class="active">
+        <a href="#">Ingresa</a>
+        <ul class="dropdown">
+          <li><a href="#">First link in dropdown</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li>
+        <%= link_to 'Perfil', comentarios_path %>
+      </li>
+      <li>
+        <%= link_to 'Eventos', eventos_path %>
+      </li>      
+      <li>
+        <%= link_to 'Alertas', alerta_path %>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+  <body>
+    <!-- Header and Nav -->
+  
+  <div class="row">
+    <div class="large-3 columns">
+      <h1><img src="http://placehold.it/400x100&text=Logo" /></h1>
+    </div>  
+  <!-- End Header and Nav -->
+    
+  <div class="row">    
+    
+    <!-- Main Content Section -->
+    <!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
+    <div class="large-9 push-3 columns">
+      
+      <h3>Bienvenidos BQnected</h3>
+      
+      <p>Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin. Venison tail chuck pork chop, andouille ball tip beef ribs flank boudin bacon. Salami andouille pork belly short ribs flank cow. Salami sirloin turkey kielbasa. Sausage venison pork loin leberkas chuck short loin, cow ham prosciutto pastrami jowl. Ham hock jerky tri-tip, fatback hamburger shoulder swine pancetta ground round. Tri-tip prosciutto meatball turkey, brisket spare ribs shankle chuck cow chicken ham hock boudin meatloaf jowl.</p>
+ 
+      <p>Ground round pastrami pork loin tenderloin jerky. Jerky spare ribs biltong, ham hock ham capicola pork. Jerky turducken pork, meatloaf sausage capicola swine corned beef turkey short loin. Tongue prosciutto pork loin, ground round spare ribs venison kielbasa strip steak.</p>
+            
+    </div>
+    
+    
+    <!-- Nav Sidebar -->
+    <!-- This is source ordered to be pulled to the left on larger screens -->
+    <div class="large-3 pull-9 columns">
+        
+      <ul class="side-nav">
+        <li><a href="#">Section 1</a></li>
+        <li><a href="#">Section 2</a></li>
+        <li><a href="#">Section 3</a></li>
+        <li><a href="#">Section 4</a></li>
+        <li><a href="#">Section 5</a></li>
+        <li><a href="#">Section 6</a></li>
+      </ul>
+      
+      <p><img src="http://placehold.it/320x240&text=Ad" /></p>
+
+    </div>    
+  </div>
+    
+  
+  <!-- Footer -->
+  
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr />
+      <div class="row">
+        <div class="large-6 columns">
+          <p>© BQnected - 2014</p>
+        </div>
+      </div>
+    </div> 
+  </footer>
+
+  </body>
+</html>

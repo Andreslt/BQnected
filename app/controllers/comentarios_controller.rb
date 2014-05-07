@@ -25,7 +25,7 @@ class ComentariosController < ApplicationController
   # GET /comentarios/new.json
   def new
     @comentario = Comentario.new
-
+    @eventos = Evento.all.map { |eve| [eve.nombre, eve.id]  }
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @comentario }

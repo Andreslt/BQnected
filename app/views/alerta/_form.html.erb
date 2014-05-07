@@ -1,7 +1,7 @@
 <%= form_for(@alertum) do |f| %>
   <% if @alertum.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@alertum.errors.count, "error") %> prohibited this alertum from being saved:</h2>
+      <h2><%= pluralize(@alertum.errors.count, "error") %> prohibited this alerta from being saved:</h2>
 
       <ul>
       <% @alertum.errors.full_messages.each do |msg| %>

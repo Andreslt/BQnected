@@ -4,16 +4,75 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "BQnected" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1>      
+        <%= link_to 'BQnected', eventos_path %>
+        </h1>
+      </li>
+       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
 
-    <%= yield %>
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+    <li class="divider"></li>
+      <% if usuario_signed_in? %>
+        <li>
+          <%= link_to current_usuario.nombre,  edit_usuario_registration_path %>
+          <ul class="dropdown">
+            <li>
+              <%= link_to 'Salir', destroy_usuario_session_path, method: :delete %>
+            </li>
+          </ul>
+        </li>
+        <% else %>
+          <li class="active">
+            <%= link_to 'Registrate', new_usuario_registration_path %>
+          </li>
+          <li>
+            <%= link_to 'Ingresa', new_usuario_session_path %>
+          </li> 
+        <% end %>     
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+    <li class="divider"></li>
+      <li>
+        <%= link_to 'Perfil', comentarios_path %>
+      </li>
+      <li>
+        <%= link_to 'Eventos', eventos_path %>
+      </li>      
+      <li>
+        <%= link_to 'Alertas', alerta_path %>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+  <body>
+    <div class="row">
+      <div class="columns large-12"> 
+          <% flash.each do |type, message| %>       
+            <div data-alert class="alert-box radius <%= flash_class type%>">
+              <%= message %>
+              <a href="#" class="close">&times;</a>
+            </div>
+          <% end %>
+        <%= yield %>
+      </div>
+    </div>
     <%= javascript_include_tag "application" %>
   </body>
 </html>
