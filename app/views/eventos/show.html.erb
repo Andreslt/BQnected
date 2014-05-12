@@ -1,7 +1,7 @@
-<p>
-  <b>Nombre:</b>
+<h2>
   <%= @evento.nombre %>
-</p>
+  </br>
+</h2>
 
 <p>
   <b>Tipo:</b>
@@ -33,11 +33,33 @@
   <%= @evento.hora %>
 </p>
 
-<p>
-  <b>Asistentes:</b>
-  <%= @evento.asistentes %>
-</p>
+<h4>Deja tu comentario</h4>
 
+<%= form_for(@comentario) do |f| %>
+  <% if @comentario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comentario.errors.count, "error") %> prohibited this comentario from being saved:</h2>
+
+      <ul>
+      <% @comentario.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label ' ' %>
+    <%= f.text_area :comentario %>
+  </div>
+  
+  <% @comentario.evento = @evento %>
+  <% @comentario.evento = @evento %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
 
 <%= link_to 'Edit', edit_evento_path(@evento) %> |
 <%= link_to 'Back', eventos_path %>

@@ -1,6 +1,7 @@
 class EventosController < ApplicationController
   # GET /eventos
   # GET /eventos.json
+  before_filter :authenticate_usuario!, only: [:new, :create, :edit, :update, :destroy]
   def index
     @eventos = Evento.all
 
@@ -14,7 +15,7 @@ class EventosController < ApplicationController
   # GET /eventos/1.json
   def show
     @evento = Evento.find(params[:id])
-
+    @comentario = Comentario.new    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @evento }
@@ -26,6 +27,7 @@ class EventosController < ApplicationController
   def new
     @evento = Evento.new
     @barrios = Barrio.all.map { |bar| [bar.nombre, bar.id]  }
+    @tiposEvento = ["Cultural", "Deportivo", "Musical", "Politico", "Religioso", "Academico", "Fiesta", "Gastronomico"]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @evento }

@@ -5,12 +5,17 @@
 
 <p>
   <b>Evento:</b>
-  <%= @comentario.evento.nombre %>
+  <%= @comentario.evento.try(:nombre) %>
 </p>
 
 <p>
   <b>Asistencia:</b>
   <%= @comentario.asistencia %>
+</p>
+
+<p>
+  <b>Creado por:</b>
+  <%= @comentario.usuario %>
 </p>
 
 <%= link_to 'Edit', edit_comentario_path(@comentario) %> |

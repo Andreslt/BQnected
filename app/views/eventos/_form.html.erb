@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :tipo %><br />
-    <%= f.text_field :tipo %>
+    <%= f.select :tipo, options_for_select(@tiposEvento), include_blank: true %>
   </div>
   <div class="field">
     <%= f.label :descripcion %><br />

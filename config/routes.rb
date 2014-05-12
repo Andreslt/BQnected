@@ -1,24 +1,19 @@
 BQnected::Application.routes.draw do
 
 
+  resources :alerts
+
   devise_for :usuarios
 
-  resources :comentarios
-
+  resources :comentarios#, only: [ :new, :create, :destroy]
 
   resources :barrios
 
-
-  resources :alerta
-
-
   resources :eventos
-
 
   resources :usuarios
 
-
-   root :to => 'eventos#index'
+  root :to => 'eventos#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

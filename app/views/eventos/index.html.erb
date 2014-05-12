@@ -1,13 +1,12 @@
-<h1>Eventos en Barranquilla</h1>
+<% if usuario_signed_in? %>
+<h4>Estos son los eventos de tu barrio <%= @BarrioEvento = current_usuario.barrio.try(:nombre) %> </h4>
 
 <table>
   <tr>
     <th>Nombre</th>
-    <th>Tipo</th>
-    <th>Fecha</th>
+    <th>Tipo</th>   
     <th>Ubicacion</th>
-    <th>Barrio</th>
-    <th>Locación</th>
+    <th>Fecha</th>
     <th>Hora</th>
     <th>Asistentes</th>
     <th></th>
@@ -15,23 +14,36 @@
     <th></th>
   </tr>
 
-<% @eventos.each do |evento| %>
-  <tr>
-    <td><%= evento.nombre %></td>
-    <td><%= evento.tipo %></td>
-    <td><%= evento.fecha %></td>
-    <td><%= evento.ubicacion %></td>
-    <td><%= evento.barrio.nombre %></td>
-    <td><%= evento.barrio.locacion %></td>
-    <td><%= evento.hora %></td>
-    <td><%= evento.asistentes %></td>
-    <td><%= link_to 'Show', evento %></td>
-    <td><%= link_to 'Edit', edit_evento_path(evento) %></td>
-    <td><%= link_to 'Destroy', evento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+    <% @eventos.each do |evento| %>
+      <% if evento.barrio.try(:nombre) == @BarrioEvento %>
+          <tr>          
+            <td><%= evento.nombre %></td>
+            <td><%= evento.tipo %></td>    
+            <td><%= evento.ubicacion %></td>
+            <td><%= evento.fecha %></td>
+            <td><%= evento.hora %></td>
+            <td><%= evento.asistentes %></td>
+            <td><%= link_to 'Show', evento %></td>
+            <td><%= link_to 'Edit', edit_evento_path(evento) %></td>
+            <td><%= link_to 'Destroy', evento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+      <% end %>    
+    <% end %>
 </table>
 
-<br />
-
 <%= link_to 'Nuevo Evento', new_evento_path, class: 'button [tiny small large]' %>
+<% else %>
+<h2>Estos son todos los eventos disponibles </h2>
+    <h5>Ingresa ahora para ver sólo los eventos de tu barrio... o crear uno nuevo!</h5>
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Barrio</th>
+    <th>Fecha</th>
+  </tr>
+  <% @eventos.each do |evento| %>
+    <td><%= evento.nombre %></td>
+    <td><%= evento.barrio.try(:nombre)%></td>
+    <td><%= evento.fecha %></td>
+  <% end %>
+<% end %>

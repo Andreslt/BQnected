@@ -1,29 +1,35 @@
-<h1>Listing usuarios</h1>
-
 <table>
   <tr>
     <th>Nombre</th>
-    <th>Email</th>
-    <th>Barrio</th>
     <th>Username</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
-<% @usuarios.each do |usuario| %>
-  <tr>
-    <td><%= usuario.nombre %></td>
-    <td><%= usuario.email %></td>
-    <td><%= usuario.barrio.nombre %></td>
-    <td><%= usuario.username %></td>
-    <td><%= link_to 'Show', usuario %></td>
-    <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
-    <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<% if usuario_signed_in? %>
+
+<h4>Estos son tus vecinos del Barrio 
+<%= @barrioUsuario = current_usuario.barrio.try(:nombre) %></h4>
+  <% @usuarios.each do |usuario| %>
+    <% if usuario.barrio.try(:nombre) == @barrioUsuario and usuario.id != current_usuario.id %> 
+    <tr>  
+      <td><%= usuario.nombre %></td>
+      <td><%= usuario.username %></td>
+      <td><%= link_to 'Ver', usuario %></td>  
+      <% end %>
+    </tr>
+  <% end %>
+<% else %>
+  <h4>Ingresa ahora para que puedas contactar con estos usuarios... Es Gratis!</h4>
+  <% @usuarios.each do |usuario| %>
+    <tr>  
+      <td><%= usuario.nombre %></td>
+      <td><%= usuario.username %></td>
+      <td><%= usuario.barrio.nombre %></td>
+    </tr>
+  <% end %>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Usuario', new_usuario_path %>

@@ -1,6 +1,8 @@
+<h2><%= @usuario.nombre %></h2>
+
 <p>
-  <b>Nombre:</b>
-  <%= @usuario.nombre %>
+  <b>Username:</b>
+  <%= @usuario.username %>
 </p>
 
 <p>
@@ -10,7 +12,7 @@
 
 <p>
   <b>Barrio:</b>
-  <%= @usuario.barrio.nombre %>
+  <%= @usuario.barrio.try(:nombre) %>
 </p>
 
 <p>
@@ -18,10 +20,4 @@
   <%= @usuario.descripcion %>
 </p>
 
-<p>
-  <b>Username:</b>
-  <%= @usuario.username %>
-</p>
-
-<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
-<%= link_to 'Back', usuarios_path %>
+<%= link_to 'Atras', usuarios_path, class: 'button' %>

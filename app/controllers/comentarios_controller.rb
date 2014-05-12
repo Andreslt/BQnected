@@ -1,6 +1,7 @@
 class ComentariosController < ApplicationController
   # GET /comentarios
   # GET /comentarios.json
+   before_filter :authenticate_usuario!, only: [:index, :new, :create, :edit, :update, :destroy]
   def index
     @comentarios = Comentario.all
 
@@ -42,7 +43,7 @@ class ComentariosController < ApplicationController
   # POST /comentarios.json
   def create
     # @comentario = current_user.comentarios.new(params[:comentario])
-    @comentario = Comentario.new(params[:comentario])
+    @comentario = Comentario.new(params[:comentario])    
     @eventos = Evento.all.map { |eve| [eve.nombre, eve.id]  }
     respond_to do |format|
       if @comentario.save

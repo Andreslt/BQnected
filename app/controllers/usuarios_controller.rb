@@ -1,6 +1,7 @@
 class UsuariosController < ApplicationController
   # GET /usuarios
   # GET /usuarios.json
+  before_filter :authenticate_usuario!, only: [:index, :new, :create, :edit, :update, :destroy]
   def index
     @usuarios = Usuario.all
 
@@ -27,7 +28,7 @@ class UsuariosController < ApplicationController
     @usuario = Usuario.new
     @barrios = Barrio.all.map { |bar| [bar.nombre, bar.id]  }
     respond_to do |format|
-      format.html # new.html.erb
+      format.html { render layout: "perfil"} # new.html.erb
       format.json { render json: @usuario }
     end
   end
@@ -81,4 +82,10 @@ class UsuariosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+ def get_barrios
+    @barrios = Barrio.all.map {|barrio| [barrio.name, barrio.id]}
+  end
+
 end

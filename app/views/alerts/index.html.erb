@@ -1,0 +1,33 @@
+<h1>Listing alerts</h1>
+
+<table>
+  <tr>
+    <th>Contenido</th>
+    <th></th>
+    <th>Tipo</th>
+    <th></th>
+    <th>Barrio</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @alerts.each do |alert| %>
+  <tr>
+    <td><%= alert.contenido %></td>
+    <td><%= alert. %></td>
+    <td><%= alert.tipo %></td>
+    <td><%= alert. %></td>
+    <td><%= alert.barrio %></td>
+    <td><%= alert. %></td>
+    <td><%= link_to 'Show', alert %></td>
+    <td><%= link_to 'Edit', edit_alert_path(alert) %></td>
+    <td><%= link_to 'Destroy', alert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Alert', new_alert_path %>

@@ -29,11 +29,9 @@
       <% if usuario_signed_in? %>
         <li>
           <%= link_to current_usuario.nombre,  edit_usuario_registration_path %>
-          <ul class="dropdown">
-            <li>
+        </li>
+        <li>
               <%= link_to 'Salir', destroy_usuario_session_path, method: :delete %>
-            </li>
-          </ul>
         </li>
         <% else %>
           <li class="active">
@@ -48,14 +46,19 @@
     <!-- Left Nav Section -->
     <ul class="left">
     <li class="divider"></li>
+    <% if usuario_signed_in? %>
       <li>
         <%= link_to 'Perfil', comentarios_path %>
       </li>
       <li>
+        <%= link_to 'Vecinos', usuarios_path %>
+      </li>
+    <% end %>
+      <li>
         <%= link_to 'Eventos', eventos_path %>
       </li>      
       <li>
-        <%= link_to 'Alertas', alerta_path %>
+        <%= link_to 'Alertas', alerts_path %>
       </li>
     </ul>
   </section>

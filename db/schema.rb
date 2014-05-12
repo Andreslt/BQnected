@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20140507123315) do
 
-  create_table "alerta", :force => true do |t|
+  create_table "alertas", :force => true do |t|
     t.string   "nombre"
     t.text     "contenido"
     t.string   "tipo"
