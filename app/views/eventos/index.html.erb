@@ -42,8 +42,11 @@
     <th>Fecha</th>
   </tr>
   <% @eventos.each do |evento| %>
+  <tr>
     <td><%= evento.nombre %></td>
     <td><%= evento.barrio.try(:nombre)%></td>
     <td><%= evento.fecha %></td>
+  </tr>
   <% end %>
+</table>
 <% end %>
