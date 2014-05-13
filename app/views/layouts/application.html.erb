@@ -52,6 +52,11 @@
       <li>
         <%= link_to 'Vecinos', usuarios_path %>
       </li>
+       <% if current_usuario.nombre == 'Andres Lastra Terán' %>
+        <li>
+          <%= link_to 'Barrios', barrios_path %>
+        </li>
+      <% end %>
     <% end %>
       <li>
         <%= link_to 'Eventos', eventos_path %>

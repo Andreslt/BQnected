@@ -1,25 +1,47 @@
+</br>
 <table>
   <tr>
     <th>Nombre</th>
     <th>Username</th>
+    <% if current_usuario.nombre == 'Andres Lastra Terán' %>
+      <th>Barrio</th>
+    <% end %>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% if usuario_signed_in? %>
+  <% if current_usuario.nombre != 'Andres Lastra Terán' %>
+  <h4>Estos son tus vecinos del Barrio 
+  <%= @barrioUsuario = current_usuario.barrio.try(:nombre) %></h4>
 
-<h4>Estos son tus vecinos del Barrio 
-<%= @barrioUsuario = current_usuario.barrio.try(:nombre) %></h4>
-  <% @usuarios.each do |usuario| %>
-    <% if usuario.barrio.try(:nombre) == @barrioUsuario and usuario.id != current_usuario.id %> 
-    <tr>  
-      <td><%= usuario.nombre %></td>
-      <td><%= usuario.username %></td>
-      <td><%= link_to 'Ver', usuario %></td>  
+    <% @usuarios.each do |usuario| %>
+
+      <% if usuario.barrio.try(:nombre) == @barrioUsuario and usuario.id != current_usuario.id %> 
+      <tr>  
+        <td><%= usuario.nombre %></td>
+        <td><%= usuario.username %></td>
+        <td><%= link_to 'Ver', usuario %></td>        
+      </tr>
       <% end %>
-    </tr>
-  <% end %>
+
+    <% end %>
+
+    <% else %>
+
+        <% @usuarios.each do |usuario| %>      
+          <tr>  
+            <td><%= usuario.nombre %></td>
+            <td><%= usuario.username %></td>
+            <td><%= usuario.barrio.nombre %></td>
+            <td><%= link_to 'Ver', usuario %></td>
+            <td><%= link_to 'Eliminar', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>  
+          </tr>
+        <% end %>
+
+    <% end %>
+
 <% else %>
   <h4>Ingresa ahora para que puedas contactar con estos usuarios... Es Gratis!</h4>
   <% @usuarios.each do |usuario| %>
@@ -33,3 +55,4 @@
 </table>
 
 <br />
+
