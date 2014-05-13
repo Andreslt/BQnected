@@ -11,15 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140507123315) do
+ActiveRecord::Schema.define(:version => 20140513035729) do
 
-  create_table "alertas", :force => true do |t|
-    t.string   "nombre"
+  create_table "alerts", :force => true do |t|
     t.text     "contenido"
     t.string   "tipo"
+    t.integer  "barrio_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "alerts", ["barrio_id"], :name => "index_alerts_on_barrio_id"
 
   create_table "barrios", :force => true do |t|
     t.string   "nombre"

@@ -1,17 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  contenido: MyString
-  : MyText
+  contenido: MyText
   tipo: MyString
-  : MyString
-  barrio: MyString
-  : 
+  barrio: 
 
 two:
-  contenido: MyString
-  : MyText
+  contenido: MyText
   tipo: MyString
-  : MyString
-  barrio: MyString
-  : 
+  barrio: 

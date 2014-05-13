@@ -43,7 +43,7 @@ class ComentariosController < ApplicationController
   # POST /comentarios.json
   def create
     # @comentario = current_user.comentarios.new(params[:comentario])
-    @comentario = Comentario.new(params[:comentario])    
+    @comentario = Comentario.new(params[:comentario].merge(usuario_id: current_usuario.id))    
     @eventos = Evento.all.map { |eve| [eve.nombre, eve.id]  }
     respond_to do |format|
       if @comentario.save

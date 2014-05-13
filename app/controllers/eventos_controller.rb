@@ -38,6 +38,7 @@ class EventosController < ApplicationController
   def edit
     @barrios = Barrio.all.map { |bar| [bar.nombre, bar.id]  }
     @evento = Evento.find(params[:id])
+    @tiposEvento = ["Cultural", "Deportivo", "Musical", "Politico", "Religioso", "Academico", "Fiesta", "Gastronomico"]
   end
 
   # POST /eventos

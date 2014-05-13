@@ -1,7 +1,7 @@
 BQnected::Application.routes.draw do
 
-
   resources :alerts
+
 
   devise_for :usuarios
 
