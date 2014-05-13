@@ -33,7 +33,25 @@
   <%= @evento.hora %>
 </p>
 
-<h4>Deja tu comentario</h4>
+<h4>Lo que se comenta</h4>
+<table>
+  <tr>
+    <th>Nombre Usuario</th>
+    <th>Comentario</th>
+  </tr>
+  <tr>
+    <% @comentar.each do |comment| %>
+      <% if comment.evento.id == @evento.id %>
+          <tr>          
+            <td><%= comment.usuario.nombre %></td>
+            <td><%= comment.comentario %></td>    
+          </tr>
+      <% end %>    
+    <% end %>
+  </tr>
+</table>
+
+<h6>Deja tu comentario</h6>
 
 <%= form_for(@comentario) do |f| %>
   <% if @comentario.errors.any? %>
