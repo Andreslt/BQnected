@@ -17,11 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :tipo %><br />
-    <%= f.text_field :tipo %>
+    <%= f.select :tipo, options_for_select(@tiposAlertas) %>
   </div>
   <div class="field">
     <%= f.label :barrio_id %><br />
-    <%= f.select :barrio_id, options_for_select(@barrios), include_blank: true %>
+    <%= f.select :barrio_id, options_for_select(@barrios) %>
   </div>
   <div class="actions">
     <%= f.submit %>

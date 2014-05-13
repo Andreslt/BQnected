@@ -8,7 +8,7 @@
   <%= f.text_field :nombre, autofocus: true %></div>
   <% barrios = Barrio.all.map {|barrio| [barrio.nombre, barrio.id]} %>
   <div><%= f.label :barrio_id %><br />
-  <%= f.select :barrio_id, options_for_select(barrios), include_blank: true %></div>
+  <%= f.select :barrio_id, options_for_select(barrios) %></div>
 
   <div><%= f.label :descripcion %><br />
   <%= f.text_area :descripcion %></div>

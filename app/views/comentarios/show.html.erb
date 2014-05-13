@@ -1,3 +1,4 @@
+</br>
 <p>
   <b>Comentario:</b>
   <%= @comentario.comentario %>
@@ -15,7 +16,7 @@
 
 <p>
   <b>Creado por:</b>
-  <%= @comentario.usuario.nombre %>
+  <%= @comentario.usuario.try(:nombre) %>
 </p>
 
 <%= link_to 'Edit', edit_comentario_path(@comentario) %> |

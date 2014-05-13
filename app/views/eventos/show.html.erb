@@ -52,14 +52,14 @@
     <%= f.label ' ' %>
     <%= f.text_area :comentario %>
   </div>
-  
-  <% @comentario.evento = @evento %>
-  <% @comentario.evento = @evento %>
+  <%= hidden_field_tag :evento_id, @evento.id %>
 
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<%= social_share_button_tag(@eventos.title) %>
 
 <%= link_to 'Edit', edit_evento_path(@evento) %> |
 <%= link_to 'Back', eventos_path %>

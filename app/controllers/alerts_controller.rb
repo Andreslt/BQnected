@@ -26,6 +26,7 @@ class AlertsController < ApplicationController
   def new
     @alert = Alert.new
     @barrios = Barrio.all.map { |bar| [bar.nombre, bar.id]  }
+    @tiposAlertas = ["Accidente","Disputa", "Robo"]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @alert }
@@ -34,14 +35,16 @@ class AlertsController < ApplicationController
 
   # GET /alerts/1/edit
   def edit
+    @barrios = Barrio.all.map {|bar| [bar.nombre, bar.id]}    
     @alert = Alert.find(params[:id])
+    @tiposAlertas = ["Accidente","Disputa", "Robo"]
   end
 
   # POST /alerts
   # POST /alerts.json
   def create
     @alert = Alert.new(params[:alert])
-
+    @tiposAlertas = ["Accidente","Disputa", "Robo"]
     respond_to do |format|
       if @alert.save
         format.html { redirect_to @alert, notice: 'Alert was successfully created.' }

@@ -1,4 +1,4 @@
-<h1>Listing alerts</h1>
+<h1>Todas las alertas</h1>
 
 <table>
   <tr>
@@ -14,7 +14,7 @@
   <tr>
     <td><%= alert.contenido %></td>
     <td><%= alert.tipo %></td>
-    <td><%= alert.barrio %></td>
+    <td><%= alert.barrio.nombre %></td>
     <td><%= link_to 'Show', alert %></td>
     <td><%= link_to 'Edit', edit_alert_path(alert) %></td>
     <td><%= link_to 'Destroy', alert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -24,4 +24,4 @@
 
 <br />
 
-<%= link_to 'New Alert', new_alert_path %>
+<%= link_to 'New Alert', new_alert_path, class: 'button [tiny small large]' %>

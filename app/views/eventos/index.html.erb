@@ -8,7 +8,6 @@
     <th>Ubicacion</th>
     <th>Fecha</th>
     <th>Hora</th>
-    <th>Asistentes</th>
     <th></th>
     <th></th>
     <th></th>
@@ -22,7 +21,6 @@
             <td><%= evento.ubicacion %></td>
             <td><%= evento.fecha %></td>
             <td><%= evento.hora %></td>
-            <td><%= evento.asistentes %></td>
             <td><%= link_to 'Show', evento %></td>
             <td><%= link_to 'Edit', edit_evento_path(evento) %></td>
             <td><%= link_to 'Destroy', evento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
